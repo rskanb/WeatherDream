@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Weather Compare</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+</head>
+<body>
+    <h1>Weather Dream</h1>
+
+    <div class= "card-body">
+    <form role = "form">
+     <div class="form-group">
+        <label for = "current-city" id = "current-city-map">What is your current City?</label>
+        <input type = "text" class = "form-control" id = "current-city" placeholder="San Francisco, US">
+       <button class="btn btn-primary" id="add-currentcity">Submit</button>
+    </div>
+    </form>
+    </div>
+    <br>
+    <br>
+    <div class= "card-body">
+        <form role = "form">
+            <div class="form-group">
+            <label for = "dream-city" id = "dream-city-map">What is your dream City?</label>
+            <input type = "text" class = "form-control" id = "dream-city" placeholder="Honululu, US">
+            <button class="btn btn-primary" id="add-dreamcity">Submit</button>
+        </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div class = "container">
+        <div class = "container" id = "currentweather"></div>
+        <br>
+        <br>
+        <div class = "container" id = "currentlocation"></div>
+        <br>
+        <br>
+        <div class = "container" id = "dreamweather"></div>
+    </div>
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script type = "text/javascript" src = "darkskyapi.js">
+    </script>
+</body>
+</html>

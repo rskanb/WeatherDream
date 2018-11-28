@@ -30,6 +30,7 @@ function getDarkWeather(lat, long){
     }).done(function(response){
         //console.log(response);
         var newDiv = $("<div>");
+        var currentTemp = response.currently.temperature;
         var currTemp = $("<p>").text(`Current Location Temperature: ${response.currently.temperature}`);
         //currTemp.append('&#8457');
         var currIcon = $("<p>").text(`Current Location Icon: ${response.currently.icon}`);
@@ -37,6 +38,7 @@ function getDarkWeather(lat, long){
         newDiv.append(currTemp);
         newDiv.append(currIcon);
         newDiv.append(currCondition);
+        newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#currentweather").append(newDiv);
     });
 };
@@ -66,6 +68,7 @@ $("#add-currentcity").on("click", function(event){
         var long = response.coord.lon;
         newDiv.append(currCity);
         newDiv.append(cityTemp);
+        newDiv.attr("data-currentcitytemp",cityTemperature);
         $("#currentlocation").append(newDiv);
     });
 });
@@ -85,14 +88,15 @@ $("#add-dreamcity").on("click", function(event){
         console.log(dreamCityTemp)
         console.log(` ${response.name}, ${response.sys.country}`);
         var newDiv = $("<div>");
-        var dreamCityTemp = $("<p>").text(`Dream City Temperature: ${dreamCityTemp}`);
+        var dreamCityTemp1 = $("<p>").text(`Dream City Temperature: ${dreamCityTemp}`);
         // //currTemp.append('&#8457');
         var dreamCity = $("<p>").text(`Dream City: ${response.name}, ${response.sys.country}`);
         //Latitude and longitude extracted to use for getDarkWeather API in case needed
         var lat = response.coord.lat;
         var long = response.coord.lon;
         newDiv.append(dreamCity);
-        newDiv.append(dreamCityTemp);
+        newDiv.append(dreamCityTemp1);
+        newDiv.attr("data-dreamtemp",dreamCityTemp);
         $("#dreamweather").append(newDiv);
     });
 });

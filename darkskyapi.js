@@ -1,8 +1,11 @@
-//code to create the chart
+
 $(document).ready(function(){
-$("#add-dreamcity").addClass('hidden');
+
+
+//code to create the chart
+
 var tempArray = [];
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart')
 var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'bar',
@@ -30,7 +33,11 @@ var chart = new Chart(ctx, {
 
 
 
+// $("#add-dreamcity").addClass('hidden');
+
+
 //Function to get current latiture and longitude based on browser
+
 
 //Function to get current latiture and longitude based on browser 
 var geolocationCall = navigator.geolocation.getCurrentPosition(function(position) {
@@ -75,7 +82,7 @@ function getDarkWeather(lat, long){
         tempArray.push(currentTemp);
         newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#currentweather").append(newDiv);
-        tempArray.push(currentTemp);
+        //tempArray.push(currentTemp);
 
     });
     // console.log(currentTemp)
@@ -88,11 +95,10 @@ $("#add-homecity").on("click", function(event){
     $("#newdiv").empty();
     var homeCityName = $("#home-city").val();
     console.log(homeCityName);
-    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${homeCityName} &APPID=c63e722432e11165cac004ba48f2a376`;
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${homeCityName}&APPID=c63e722432e11165cac004ba48f2a376`;
-    homeCity(queryUrl);
+    homeCityCall(queryUrl);
     var homeCity = $("#home-city").val('');
-    $("#add-dreamcity").removeClass('hidden');
+    $("#add-dreamcity").css('display', 'block')
 });
 // function homeCityCall(url){
 //     $.ajax({
@@ -103,7 +109,7 @@ $("#add-homecity").on("click", function(event){
 //     homeCity(queryUrl)
 //     var currentCity = $("#current-city").val('');
 });
-    function homeCity(url){
+    function homeCityCall(url){
     
     $.ajax({
         url: url,
@@ -111,42 +117,41 @@ $("#add-homecity").on("click", function(event){
     }).done(function(response){
         console.log(response);
         var cityTemperature = parseInt(((response.main.temp-273.15)*1.8)+32);
-        console.log(cityTemperature)
-        console.log(` ${response.name}, ${response.sys.country}`);
+        var humid = response.main.humidity;
+        var windsp = response.wind.speed;
+        var sunRise = (response.sys.sunrise)*1000;
+        console.log(sunRise);
+        var day = moment(sunRise).format("DD-MM-YYYY HH:mm:ss A");
+        console.log(day);
         var newDiv = $("<div>");
-        var cityTemp = $("<p>").text(`Home City Temperature: ${cityTemperature} ℉`);
+        var cityTemp = $("<p>").text(`Temperature: ${cityTemperature} ℉`);
         var currCity = $("<p>").text(`${response.name}, ${response.sys.country}`);
+        var cityWind = $("<p>").text(`Wind Speed: ${windsp}`);
+        var cityHumid = $("<p>").text(`Huidity: ${humid}`);
+        //var citySun = $("<p>").text(`Sun Rise ${citySunRise}`);
         //Latitude and longitude extracted to use for getDarkWeather API in case needed
         //var lat = response.coord.lat;
         //var long = response.coord.lon;
         newDiv.attr("id", "newdiv");
         newDiv.append(currCity);
         newDiv.append(cityTemp);
+        newDiv.append(cityWind);
+        newDiv.append(cityHumid);
         //newDiv.attr("data-homecitytemp",cityTemperature);
         $("#home-location").append(newDiv);
         tempArray.push(cityTemperature);
     });
 };
-<<<<<<< HEAD
-       
-
-=======
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
 
 $("#add-dreamcity").on("click", function(event){
     event.preventDefault();
     $("#newdiv1").empty();
     var dreamCity = $("#dream-city").val();
     console.log(dreamCity);
-<<<<<<< HEAD
-    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${dreamCity} &APPID=c63e722432e11165cac004ba48f2a376`
-=======
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamCity}&APPID=c63e722432e11165cac004ba48f2a376`
     dreamCityCall(queryUrl);
     var dreamCity = $("#dream-city").val('');
 });
-<<<<<<< HEAD
 // function dreamCityCall(url){
 //     $.ajax({
 //         //url: queryUrl,
@@ -158,26 +163,26 @@ $("#add-dreamcity").on("click", function(event){
 
  function dreamCityCall(url){
     $.ajax({
-=======
-function dreamCityCall(url){
-    $.ajax({
-        //url: queryUrl,
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
         url: url,
         method: "GET"
     }).done(function(response){
         console.log(response);
         var dreamCityTemp = parseInt(((response.main.temp-273.15)*1.8)+32);
-
+        var dhumid = response.main.humidity;
+        var dwindsp = response.wind.speed;
         var newDiv = $("<div>");
-        var dreamCityTemp1 = $("<p>").text(`Dream City Temperature: ${dreamCityTemp} ℉`);
+        var dreamCityTemp1 = $("<p>").text(`Temperature: ${dreamCityTemp} ℉`);
         var dreamCity = $("<p>").text(`Dream City: ${response.name}, ${response.sys.country}`);
+        var dcityWind = $("<p>").text(`Wind Speed: ${dwindsp}`);
+        var dcirtHumid = $("<p>").text(`Huidity: ${dhumid}`);
         //Latitude and longitude extracted to use for getDarkWeather API in case needed
         //var lat = response.coord.lat;
         //var long = response.coord.lon;
         newDiv.attr("id", "newdiv1");
         newDiv.append(dreamCity);
         newDiv.append(dreamCityTemp1);
+        newDiv.append(dcityWind);
+        newDiv.append(dcirtHumid);
         //newDiv.attr("data-dreamtemp",dreamCityTemp);
         $("#dream-location").append(newDiv);
         tempArray.push(dreamCityTemp);
@@ -185,13 +190,10 @@ function dreamCityCall(url){
         buildChart(tempArray, chart)
     });
 };
-<<<<<<< HEAD
-
-        
 
 function buildChart(temp, chart){
     
-    // console.log("hello")
+    console.log("hello")
     // chart.data.datasets.forEach((dataset) => {
     //     dataset.data.push(data);
     // });
@@ -201,10 +203,4 @@ function buildChart(temp, chart){
     chart.data.datasets[0].data.push(temp[0]) -  chart.data.datasets[0].data.push(parseInt(temp[1]))
     chart.data.datasets[0].data.push(temp[0]) - chart.data.datasets[0].data.push(parseInt(temp[2]))
     chart.update();
-
- 
-
-}
-=======
-});
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
+};

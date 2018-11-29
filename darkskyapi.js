@@ -1,7 +1,9 @@
 
 $(document).ready(function(){
 
+
 //code to create the chart
+
 var tempArray = [];
 var ctx = document.getElementById('myChart')
 var chart = new Chart(ctx, {
@@ -30,7 +32,12 @@ var chart = new Chart(ctx, {
 
 
 
+
 // $("#add-dreamcity").addClass('hidden');
+
+
+//Function to get current latiture and longitude based on browser
+
 
 //Function to get current latiture and longitude based on browser 
 var geolocationCall = navigator.geolocation.getCurrentPosition(function(position) {

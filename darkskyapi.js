@@ -1,5 +1,7 @@
-//code to create the chart
+
 $(document).ready(function(){
+
+//code to create the chart
 var tempArray = [];
 var ctx = document.getElementById('myChart')
 var chart = new Chart(ctx, {
@@ -133,8 +135,6 @@ $("#add-homecity").on("click", function(event){
         tempArray.push(cityTemperature);
     });
 };
-       
-
 
 $("#add-dreamcity").on("click", function(event){
     event.preventDefault();
@@ -183,11 +183,10 @@ $("#add-dreamcity").on("click", function(event){
         buildChart(tempArray, chart)
     });
 };
-        
 
 function buildChart(temp, chart){
     
-    // console.log("hello")
+    console.log("hello")
     // chart.data.datasets.forEach((dataset) => {
     //     dataset.data.push(data);
     // });
@@ -197,7 +196,4 @@ function buildChart(temp, chart){
     chart.data.datasets[0].data.push(temp[0]) -  chart.data.datasets[0].data.push(parseInt(temp[1]))
     chart.data.datasets[0].data.push(temp[0]) - chart.data.datasets[0].data.push(parseInt(temp[2]))
     chart.update();
-
- 
-
-}
+};

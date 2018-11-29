@@ -1,8 +1,11 @@
-//code to create the chart
+
 $(document).ready(function(){
-$("#add-dreamcity").addClass('hidden');
+
+
+//code to create the chart
+
 var tempArray = [];
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart')
 var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'bar',
@@ -28,6 +31,9 @@ var chart = new Chart(ctx, {
 
 
 
+
+
+// $("#add-dreamcity").addClass('hidden');
 
 
 //Function to get current latiture and longitude based on browser
@@ -134,7 +140,7 @@ function getDarkWeather(lat, long){
         tempArray.push(currentTemp);
         newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#currentweather").append(newDiv);
-        tempArray.push(currentTemp);
+        //tempArray.push(currentTemp);
 
     });
     // console.log(currentTemp)
@@ -206,11 +212,10 @@ $("#add-homecity").on("click", function(event){
     $("#newdiv").empty();
     var homeCityName = $("#home-city").val();
     console.log(homeCityName);
-    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${homeCityName} &APPID=c63e722432e11165cac004ba48f2a376`;
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${homeCityName}&APPID=c63e722432e11165cac004ba48f2a376`;
-    homeCity(queryUrl);
+    homeCityCall(queryUrl);
     var homeCity = $("#home-city").val('');
-    $("#add-dreamcity").removeClass('hidden');
+    $("#add-dreamcity").css('display', 'block')
 });
 // function homeCityCall(url){
 //     $.ajax({
@@ -221,7 +226,7 @@ $("#add-homecity").on("click", function(event){
 //     homeCity(queryUrl)
 //     var currentCity = $("#current-city").val('');
 });
-    function homeCity(url){
+    function homeCityCall(url){
     
     $.ajax({
         url: url,
@@ -229,17 +234,26 @@ $("#add-homecity").on("click", function(event){
     }).done(function(response){
         console.log(response);
         var cityTemperature = parseInt(((response.main.temp-273.15)*1.8)+32);
-        console.log(cityTemperature)
-        console.log(` ${response.name}, ${response.sys.country}`);
+        var humid = response.main.humidity;
+        var windsp = response.wind.speed;
+        var sunRise = (response.sys.sunrise)*1000;
+        console.log(sunRise);
+        var day = moment(sunRise).format("DD-MM-YYYY HH:mm:ss A");
+        console.log(day);
         var newDiv = $("<div>");
-        var cityTemp = $("<p>").text(`Home City Temperature: ${cityTemperature} ℉`);
+        var cityTemp = $("<p>").text(`Temperature: ${cityTemperature} ℉`);
         var currCity = $("<p>").text(`${response.name}, ${response.sys.country}`);
+        var cityWind = $("<p>").text(`Wind Speed: ${windsp}`);
+        var cityHumid = $("<p>").text(`Huidity: ${humid}`);
+        //var citySun = $("<p>").text(`Sun Rise ${citySunRise}`);
         //Latitude and longitude extracted to use for getDarkWeather API in case needed
         //var lat = response.coord.lat;
         //var long = response.coord.lon;
         newDiv.attr("id", "newdiv");
         newDiv.append(currCity);
         newDiv.append(cityTemp);
+        newDiv.append(cityWind);
+        newDiv.append(cityHumid);
         //newDiv.attr("data-homecitytemp",cityTemperature);
         $("#home-location").append(newDiv);
         tempArray.push(cityTemperature);
@@ -251,12 +265,10 @@ $("#add-dreamcity").on("click", function(event){
     $("#newdiv1").empty();
     var dreamCity = $("#dream-city").val();
     console.log(dreamCity);
-
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamCity}&APPID=c63e722432e11165cac004ba48f2a376`
     dreamCityCall(queryUrl);
     var dreamCity = $("#dream-city").val('');
 });
-
 // function dreamCityCall(url){
 //     $.ajax({
 //         //url: queryUrl,
@@ -275,16 +287,21 @@ function dreamCityCall(url){
     }).done(function(response){
         console.log(response);
         var dreamCityTemp = parseInt(((response.main.temp-273.15)*1.8)+32);
-
+        var dhumid = response.main.humidity;
+        var dwindsp = response.wind.speed;
         var newDiv = $("<div>");
-        var dreamCityTemp1 = $("<p>").text(`Dream City Temperature: ${dreamCityTemp} ℉`);
+        var dreamCityTemp1 = $("<p>").text(`Temperature: ${dreamCityTemp} ℉`);
         var dreamCity = $("<p>").text(`Dream City: ${response.name}, ${response.sys.country}`);
+        var dcityWind = $("<p>").text(`Wind Speed: ${dwindsp}`);
+        var dcirtHumid = $("<p>").text(`Huidity: ${dhumid}`);
         //Latitude and longitude extracted to use for getDarkWeather API in case needed
         //var lat = response.coord.lat;
         //var long = response.coord.lon;
         newDiv.attr("id", "newdiv1");
         newDiv.append(dreamCity);
         newDiv.append(dreamCityTemp1);
+        newDiv.append(dcityWind);
+        newDiv.append(dcirtHumid);
         //newDiv.attr("data-dreamtemp",dreamCityTemp);
         $("#dream-location").append(newDiv);
         tempArray.push(dreamCityTemp);
@@ -298,7 +315,7 @@ function dreamCityCall(url){
 
 function buildChart(temp, chart){
     
-    // console.log("hello")
+    console.log("hello")
     // chart.data.datasets.forEach((dataset) => {
     //     dataset.data.push(data);
     // });

@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 //code to create the chart
-
+$(document).ready(function(){
 var tempArray = [];
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
@@ -28,19 +27,11 @@ var chart = new Chart(ctx, {
 
 
 
-=======
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
-$(document).ready(function(){
-var tempArray = [];
+
 $("#add-dreamcity").addClass('hidden');
 //Function to get current latiture and longitude based on browser
-<<<<<<< HEAD
-
-var tempArray = [];
 
 //Function to get current latiture and longitude based on browser 
-=======
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
 var geolocationCall = navigator.geolocation.getCurrentPosition(function(position) {
     if (navigator.geolocation){  //condition to check geolocation available
     var lat = position.coords.latitude;
@@ -81,13 +72,10 @@ function getDarkWeather(lat, long){
         //newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#current-location").append(newDiv);
         tempArray.push(currentTemp);
-<<<<<<< HEAD
         newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#currentweather").append(newDiv);
         tempArray.push(currentTemp);
 
-=======
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
     });
     // console.log(currentTemp)
 };
@@ -101,11 +89,10 @@ $("#add-homecity").on("click", function(event){
     console.log(homeCityName);
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${homeCityName} &APPID=c63e722432e11165cac004ba48f2a376`;
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${homeCityName}&APPID=c63e722432e11165cac004ba48f2a376`;
-    homeCityCall(queryUrl);
+    homeCity(queryUrl);
     var homeCity = $("#home-city").val('');
     $("#add-dreamcity").removeClass('hidden');
 });
-<<<<<<< HEAD
 // function homeCityCall(url){
 //     $.ajax({
 //         //url: queryUrl,
@@ -118,11 +105,6 @@ $("#add-homecity").on("click", function(event){
     function homeCity(url){
     
     $.ajax({
-=======
-function homeCityCall(url){
-    $.ajax({
-        //url: queryUrl,
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
         url: url,
         method: "GET"
     }).done(function(response){

@@ -16,8 +16,9 @@ Everyone; anyone who desires to plan, compare, or obtain mutliple weather condit
 ###APIs implemented###
 1. Azavea
 2. Dark Sky
+3. Unsplash
 
-Azavea was utilized for its easy to use data and geogharphical technology, with up to date climate maps and weather projections world wide. Dark Sky's advanced weather forecast APIs are currently considered to be the most advanced and simplistic to use.
+Azavea was utilized for its easy to use data and geogharphical technology, which contains up to date climate maps and weather projections world wide. Dark Sky's advanced weather forecast APIs are currently considered to be the most advanced and simplistic to use. Unsplash is an image source library, which was utilized for its large selection of high quality images obtained from world wide locations.
 
 
 //screenshots//

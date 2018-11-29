@@ -13,7 +13,7 @@
     <div class= "card-body">
     <form role = "form">
      <div class="form-group">
-        <label for = "current-city" id = "current-city-map">What is your current City?</label>
+        <label for = "home-city" id = "home-city-map">What is your current City?</label>
         <input type = "text" class = "form-control" id = "home-city" placeholder="San Francisco, US">
        <button class="btn btn-primary" id="add-homecity">Submit</button>
     </div>
@@ -29,6 +29,7 @@
             <button class="btn btn-primary" id="add-dreamcity">Submit</button>
         </div>
         </form>
+        <button class="btn btn-primary" id="run">Submit</button>
     </div>
     <br>
     <br>
@@ -36,12 +37,25 @@
         <div class = "container" id = "currentweather"></div>
         <br>
         <br>
-        <div class = "container" id = "currentlocation"></div>
+        <div class = "container" id = "homelocation"></div>
         <br>
         <br>
         <div class = "container" id = "dreamweather"></div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                    <canvas id="myChart" width="100" height="100"></canvas>
+            </div>
+        </div>    
+    </div>
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script type = "text/javascript" src = "darkskyapi.js">
     </script>
 </body>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //code to create the chart
 
 var tempArray = [];
@@ -27,14 +28,19 @@ var chart = new Chart(ctx, {
 
 
 
+=======
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
 $(document).ready(function(){
 var tempArray = [];
 $("#add-dreamcity").addClass('hidden');
 //Function to get current latiture and longitude based on browser
+<<<<<<< HEAD
 
 var tempArray = [];
 
 //Function to get current latiture and longitude based on browser 
+=======
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
 var geolocationCall = navigator.geolocation.getCurrentPosition(function(position) {
     if (navigator.geolocation){  //condition to check geolocation available
     var lat = position.coords.latitude;
@@ -75,10 +81,13 @@ function getDarkWeather(lat, long){
         //newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#current-location").append(newDiv);
         tempArray.push(currentTemp);
+<<<<<<< HEAD
         newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#currentweather").append(newDiv);
         tempArray.push(currentTemp);
 
+=======
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
     });
     // console.log(currentTemp)
 };
@@ -96,6 +105,7 @@ $("#add-homecity").on("click", function(event){
     var homeCity = $("#home-city").val('');
     $("#add-dreamcity").removeClass('hidden');
 });
+<<<<<<< HEAD
 // function homeCityCall(url){
 //     $.ajax({
 //         //url: queryUrl,
@@ -108,6 +118,11 @@ $("#add-homecity").on("click", function(event){
     function homeCity(url){
     
     $.ajax({
+=======
+function homeCityCall(url){
+    $.ajax({
+        //url: queryUrl,
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
         url: url,
         method: "GET"
     }).done(function(response){
@@ -129,19 +144,26 @@ $("#add-homecity").on("click", function(event){
         tempArray.push(cityTemperature);
     });
 };
+<<<<<<< HEAD
        
 
+=======
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
 
 $("#add-dreamcity").on("click", function(event){
     event.preventDefault();
     $("#newdiv1").empty();
     var dreamCity = $("#dream-city").val();
     console.log(dreamCity);
+<<<<<<< HEAD
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${dreamCity} &APPID=c63e722432e11165cac004ba48f2a376`
+=======
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamCity}&APPID=c63e722432e11165cac004ba48f2a376`
     dreamCityCall(queryUrl);
     var dreamCity = $("#dream-city").val('');
 });
+<<<<<<< HEAD
 // function dreamCityCall(url){
 //     $.ajax({
 //         //url: queryUrl,
@@ -153,6 +175,11 @@ $("#add-dreamcity").on("click", function(event){
 
  function dreamCityCall(url){
     $.ajax({
+=======
+function dreamCityCall(url){
+    $.ajax({
+        //url: queryUrl,
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
         url: url,
         method: "GET"
     }).done(function(response){
@@ -175,6 +202,7 @@ $("#add-dreamcity").on("click", function(event){
         buildChart(tempArray, chart)
     });
 };
+<<<<<<< HEAD
 
         
 
@@ -194,3 +222,6 @@ function buildChart(temp, chart){
  
 
 }
+=======
+});
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209

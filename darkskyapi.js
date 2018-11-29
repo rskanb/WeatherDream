@@ -1,4 +1,6 @@
 
+var tempArray = [];
+
 //Function to get current latiture and longitude based on browser 
 var geolocationCall = navigator.geolocation.getCurrentPosition(function(position) {
     if (navigator.geolocation){  //condition to check geolocation available 
@@ -30,6 +32,7 @@ function getDarkWeather(lat, long){
     }).done(function(response){
         //console.log(response);
         var newDiv = $("<div>");
+        var currentTemp = response.currently.temperature;
         var currTemp = $("<p>").text(`Current Location Temperature: ${response.currently.temperature}`);
         //currTemp.append('&#8457');
         var currIcon = $("<p>").text(`Current Location Icon: ${response.currently.icon}`);
@@ -37,20 +40,28 @@ function getDarkWeather(lat, long){
         newDiv.append(currTemp);
         newDiv.append(currIcon);
         newDiv.append(currCondition);
+        newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#currentweather").append(newDiv);
+        tempArray.push(currentTemp);
+
     });
+    // console.log(currentTemp)
 };
-//$(document).ready(getDarkWeather);
+//$(document).ready(getDarkWeather);t
 
 //Function to get current weather base on city and dream location
 $("#add-currentcity").on("click", function(event){
     event.preventDefault();
     var currentCity = $("#current-city").val();
     console.log(currentCity);
-    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${currentCity} &APPID=c63e722432e11165cac004ba48f2a376`
-
+    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&APPID=c63e722432e11165cac004ba48f2a376`;
+    homeCity(queryUrl)
+    var currentCity = $("#current-city").val('');
+});
+    function homeCity(url){
+    
     $.ajax({
-        url: queryUrl,
+        url: url,
         method: "GET"
     }).done(function(response){
         console.log(response);
@@ -66,18 +77,27 @@ $("#add-currentcity").on("click", function(event){
         var long = response.coord.lon;
         newDiv.append(currCity);
         newDiv.append(cityTemp);
+        newDiv.attr("data-currentcitytemp",cityTemperature);
         $("#currentlocation").append(newDiv);
+        tempArray.push(cityTemperature);
+        
     });
-});
+}
+
 
 $("#add-dreamcity").on("click", function(event){
     event.preventDefault();
     var dreamCity = $("#dream-city").val();
     console.log(dreamCity);
-    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${dreamCity} &APPID=c63e722432e11165cac004ba48f2a376`
+    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamCity}&APPID=c63e722432e11165cac004ba48f2a376`
+    // debugger;
+    dreamCityCall(queryUrl);
+    var dreamCity = $("#dream-city").val('');
+});
 
+ function dreamCityCall(url){
     $.ajax({
-        url: queryUrl,
+        url: url,
         method: "GET"
     }).done(function(response){
         console.log(response);
@@ -85,14 +105,52 @@ $("#add-dreamcity").on("click", function(event){
         console.log(dreamCityTemp)
         console.log(` ${response.name}, ${response.sys.country}`);
         var newDiv = $("<div>");
-        var dreamCityTemp = $("<p>").text(`Dream City Temperature: ${dreamCityTemp}`);
+        var dreamCityTemp1 = $("<p>").text(`Dream City Temperature: ${dreamCityTemp}`);
         // //currTemp.append('&#8457');
         var dreamCity = $("<p>").text(`Dream City: ${response.name}, ${response.sys.country}`);
         //Latitude and longitude extracted to use for getDarkWeather API in case needed
         var lat = response.coord.lat;
         var long = response.coord.lon;
         newDiv.append(dreamCity);
-        newDiv.append(dreamCityTemp);
+        newDiv.append(dreamCityTemp1);
+        newDiv.attr("data-dreamtemp",dreamCityTemp);
         $("#dreamweather").append(newDiv);
+        tempArray.push(dreamCityTemp);
+        console.log(tempArray)
     });
+}
+
+if(tempArray.length === 3){
+    buildChart(tempArray)
+}
+
+function buildChart(temp){
+console.log(temp)
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ["Current City", "Your City", "Dream City"],
+        datasets: [{
+            label: "Temperatures",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [temp[0], temp[1], temp[2]],
+        }]
+    },
+
+    // Configuration options go here
+    // options: {
+    //     animation: {
+    //         onProgress: function(animation) {
+    //             progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+    //         }
+    //     }
+
+      
+    // }
 });
+}

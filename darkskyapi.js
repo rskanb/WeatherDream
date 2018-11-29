@@ -1,7 +1,37 @@
+//code to create the chart
 $(document).ready(function(){
 var tempArray = [];
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ["Your Current Location", "Your Home Location", "Your Dream Location", "Temp Difference from Home", "Temp Difference from Dream"],
+        datasets: [{
+            label: "Temperatures",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: []
+        }]
+    }
+ //  Configuration options go here
+//  options: {
+//     animation: {
+//         onProgress: function(animation) {
+//             progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+//         }
+//     }
+});
+
+
+
+
 $("#add-dreamcity").addClass('hidden');
 //Function to get current latiture and longitude based on browser
+
+//Function to get current latiture and longitude based on browser 
 var geolocationCall = navigator.geolocation.getCurrentPosition(function(position) {
     if (navigator.geolocation){  //condition to check geolocation available
     var lat = position.coords.latitude;
@@ -42,6 +72,10 @@ function getDarkWeather(lat, long){
         //newDiv.attr("data-currentbrowsertemp",currentTemp);
         $("#current-location").append(newDiv);
         tempArray.push(currentTemp);
+        newDiv.attr("data-currentbrowsertemp",currentTemp);
+        $("#currentweather").append(newDiv);
+        tempArray.push(currentTemp);
+
     });
     // console.log(currentTemp)
 };
@@ -55,13 +89,22 @@ $("#add-homecity").on("click", function(event){
     console.log(homeCityName);
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${homeCityName} &APPID=c63e722432e11165cac004ba48f2a376`;
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${homeCityName}&APPID=c63e722432e11165cac004ba48f2a376`;
-    homeCityCall(queryUrl);
+    homeCity(queryUrl);
     var homeCity = $("#home-city").val('');
     $("#add-dreamcity").removeClass('hidden');
 });
-function homeCityCall(url){
+// function homeCityCall(url){
+//     $.ajax({
+//         //url: queryUrl,
+//     var currentCity = $("#current-city").val();
+//     console.log(currentCity);
+//     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&APPID=c63e722432e11165cac004ba48f2a376`;
+//     homeCity(queryUrl)
+//     var currentCity = $("#current-city").val('');
+});
+    function homeCity(url){
+    
     $.ajax({
-        //url: queryUrl,
         url: url,
         method: "GET"
     }).done(function(response){
@@ -83,19 +126,42 @@ function homeCityCall(url){
         tempArray.push(cityTemperature);
     });
 };
+<<<<<<< HEAD
+       
+
+=======
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
 
 $("#add-dreamcity").on("click", function(event){
     event.preventDefault();
     $("#newdiv1").empty();
     var dreamCity = $("#dream-city").val();
     console.log(dreamCity);
+<<<<<<< HEAD
+    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${dreamCity} &APPID=c63e722432e11165cac004ba48f2a376`
+=======
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamCity}&APPID=c63e722432e11165cac004ba48f2a376`
     dreamCityCall(queryUrl);
     var dreamCity = $("#dream-city").val('');
 });
+<<<<<<< HEAD
+// function dreamCityCall(url){
+//     $.ajax({
+//         //url: queryUrl,
+//     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamCity}&APPID=c63e722432e11165cac004ba48f2a376`
+//     // debugger;
+//     dreamCityCall(queryUrl);
+//     var dreamCity = $("#dream-city").val('');
+// });
+
+ function dreamCityCall(url){
+    $.ajax({
+=======
 function dreamCityCall(url){
     $.ajax({
         //url: queryUrl,
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
         url: url,
         method: "GET"
     }).done(function(response){
@@ -115,6 +181,29 @@ function dreamCityCall(url){
         $("#dream-location").append(newDiv);
         tempArray.push(dreamCityTemp);
         console.log(tempArray)
+        buildChart(tempArray, chart)
     });
 };
+<<<<<<< HEAD
+
+        
+
+function buildChart(temp, chart){
+    
+    // console.log("hello")
+    // chart.data.datasets.forEach((dataset) => {
+    //     dataset.data.push(data);
+    // });
+    chart.data.datasets[0].data.push(temp[0])
+    chart.data.datasets[0].data.push(parseInt(temp[1]))
+    chart.data.datasets[0].data.push(parseInt(temp[2]))
+    chart.data.datasets[0].data.push(temp[0]) -  chart.data.datasets[0].data.push(parseInt(temp[1]))
+    chart.data.datasets[0].data.push(temp[0]) - chart.data.datasets[0].data.push(parseInt(temp[2]))
+    chart.update();
+
+ 
+
+}
+=======
 });
+>>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209

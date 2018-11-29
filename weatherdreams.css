@@ -87,6 +87,7 @@ header {
   background: rgba(96, 154, 255, 0.2);
   color: #ffff;
   font-weight: 200;
+}
 
 .hidden {
   display: none;

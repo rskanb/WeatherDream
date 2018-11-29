@@ -1,5 +1,7 @@
-//code to create the chart
+
 $(document).ready(function(){
+
+    //code to create the chart
 var tempArray = [];
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
@@ -126,42 +128,19 @@ $("#add-homecity").on("click", function(event){
         tempArray.push(cityTemperature);
     });
 };
-<<<<<<< HEAD
-       
-
-=======
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
 
 $("#add-dreamcity").on("click", function(event){
     event.preventDefault();
     $("#newdiv1").empty();
     var dreamCity = $("#dream-city").val();
     console.log(dreamCity);
-<<<<<<< HEAD
-    var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q= ${dreamCity} &APPID=c63e722432e11165cac004ba48f2a376`
-=======
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamCity}&APPID=c63e722432e11165cac004ba48f2a376`
     dreamCityCall(queryUrl);
     var dreamCity = $("#dream-city").val('');
 });
-<<<<<<< HEAD
-// function dreamCityCall(url){
-//     $.ajax({
-//         //url: queryUrl,
-//     var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamCity}&APPID=c63e722432e11165cac004ba48f2a376`
-//     // debugger;
-//     dreamCityCall(queryUrl);
-//     var dreamCity = $("#dream-city").val('');
-// });
-
- function dreamCityCall(url){
-    $.ajax({
-=======
 function dreamCityCall(url){
     $.ajax({
         //url: queryUrl,
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209
         url: url,
         method: "GET"
     }).done(function(response){
@@ -184,7 +163,6 @@ function dreamCityCall(url){
         buildChart(tempArray, chart)
     });
 };
-<<<<<<< HEAD
 
         
 
@@ -204,6 +182,3 @@ function buildChart(temp, chart){
  
 
 }
-=======
-});
->>>>>>> 87aeeee6fc0887328b79fd8b50e7e84b6205e209

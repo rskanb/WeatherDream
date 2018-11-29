@@ -1,0 +1,91 @@
+
+
+body {
+  background: rgb(216, 229, 252);
+}
+
+body::after {
+  content: "";
+  background: url(http://nollfuneral.com/wp-content/uploads/2016/02/cloud-background.jpg);
+  background-position: top center;
+  background-size: cover;
+  opacity: 0.25;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+header {
+  font-size: 40px;
+  font-family: 'Poppins', sans-serif, serif;
+  padding: 30px;
+  color: #ffff;
+  text-align: center;
+  text-shadow: rgba(96, 154, 255, 0.3) 1px 1px 1px;
+}
+
+/* .jumbotron { 
+  min-height: 50px;
+  text-align: center } */
+
+#home-location {
+  min-height: 600px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  background: rgba(96, 154, 255, 0.2);
+}
+
+#home-location img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+#dream-location {
+  min-height: 600px;  
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  background: rgba(96, 154, 255, 0.2);
+}
+
+#dream-location img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+#enter-box{
+  width: 50%;
+  margin: 20px auto 0;
+}
+
+#enter-btn {
+  display: block;
+  margin: 10px auto;
+}
+
+#hottest-location {
+  font-family: 'Poppins', sans-serif;
+  min-height: 150px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background: rgba(96, 154, 255, 0.2);
+  color: #ffff;
+  font-weight: 200;
+}
+
+#coldest-location {
+  font-family: 'Poppins', sans-serif;
+  min-height: 150px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  background: rgba(96, 154, 255, 0.2);
+  color: #ffff;
+  font-weight: 200;
+}
+
+.hidden {
+  display: none;
+}

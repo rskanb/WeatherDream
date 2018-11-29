@@ -1,5 +1,6 @@
 //code to create the chart
 $(document).ready(function(){
+$("#add-dreamcity").addClass('hidden');
 var tempArray = [];
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
@@ -28,7 +29,7 @@ var chart = new Chart(ctx, {
 
 
 
-$("#add-dreamcity").addClass('hidden');
+
 //Function to get current latiture and longitude based on browser
 
 //Function to get current latiture and longitude based on browser 

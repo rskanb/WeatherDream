@@ -54,14 +54,24 @@ header {
   border-radius: 10px;
 }
 
-#enter-box{
+#home-city {
   width: 35%;
   margin: 20px auto 0;
 }
 
-#enter-btn {
+#add-homecity {
   display: block;
-  margin: 10px auto 0;
+  margin: 10px auto;
+}
+
+#dream-city {
+  width: 35%;
+  margin: 20px auto 0;
+}
+
+#add-dreamcity {
+  display: block;
+  margin: 10px auto;
 }
 
 #hottest-location {
@@ -87,5 +97,5 @@ header {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }

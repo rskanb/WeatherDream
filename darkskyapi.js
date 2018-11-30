@@ -82,20 +82,11 @@ function gethomecitypic(queryUrl){
         console.log("HERE!!!");
        // var firstPhoto = response.results[0].link.download;
         //console.log('firstPhoto', firstPhoto)
-        var newDiv = $("<div>");
         // var currTemp = $("<p>").text(`Current Location Temperature: ${response.currently.temperature}`);
         // //currTemp.append('&#8457');
         // var currIcon = $("<p>").text(`Current Location Icon: ${response.currently.icon}`);
         // var currCondition = $("<p>").text(`Current Location Condition: ${response.currently.summary}`);
-        newImg = $("<img>");
-        newImg.attr('src', response.results[0].links.download);
-        newImg.attr("height", "300");
-        newImg.attr("width", "500");
-        newDiv.attr("id","newDiv");
-        //newImg.append(new);
-        newDiv.append(newImg);
-        // newDiv.append(currCondition);
-        $("#home-location").append(newDiv);
+        $("#homeimage").attr('src', response.results[0].links.download);
     })
 }
 

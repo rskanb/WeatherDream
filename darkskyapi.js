@@ -1,9 +1,13 @@
 
 $(document).ready(function(){
 
+<<<<<<< HEAD
+    //code to create the chart
+=======
 
 //code to create the chart
 
+>>>>>>> master
 var tempArray = [];
 var ctx = document.getElementById('myChart')
 var chart = new Chart(ctx, {
@@ -269,6 +273,8 @@ $("#add-dreamcity").on("click", function(event){
     dreamCityCall(queryUrl);
     var dreamCity = $("#dream-city").val('');
 });
+<<<<<<< HEAD
+=======
 // function dreamCityCall(url){
 //     $.ajax({
 //         //url: queryUrl,
@@ -279,6 +285,7 @@ $("#add-dreamcity").on("click", function(event){
 // });
 
  
+>>>>>>> master
 function dreamCityCall(url){
     $.ajax({
         //url: queryUrl,
@@ -309,7 +316,10 @@ function dreamCityCall(url){
         buildChart(tempArray, chart)
     });
 };
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 
         
 

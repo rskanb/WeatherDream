@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <head>
-    <html lang="en">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Weather Dreams</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400" rel="stylesheet">
-    <link rel="stylesheet" href="weatherdreams.css">
-    
+  <html lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Dreams</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400" rel="stylesheet">
+  <link rel="stylesheet" href="weatherdreams.css">
+
 </head>
 <body>
 
       <header>
         <!-- <div class = "jumbotron"> -->
-        <div class="container-fluid"> 
+        <div class="container-fluid">
           <div class="row">
               <div class="col-sm-12">
                 <h1> Weather Dreams</h1>
@@ -22,42 +22,41 @@
         </div>
         <!-- </div> -->
       </header>
-  
+
 <div class="container">
   <div class="row">
-    <div class="col-sm-4"> 
+    <div class="col-sm-4 text-center">
       <div class = "row">
-        <div id = "home-location">
-        <img src="img.jpg" id = "homeimage" width = "500" height = "300" >
+        <div id = "home-location" class = "text-center">
+        <img src="img.jpg" id = "homecityimage" width = "500" height = "300" >
         <input type="text" id = "home-city" id =" enter-box" class="form-control" placeholder = "Berkeley,US">
-        <button class="btn btn-light" id="add-homecity" id= "enter-btn">Home City</button>
+        <button class="btn btn-light" id="add-homecity" id= "enter-btn">Home Location</button>
       </div>
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-4 text-center">
       <div class = "row">
-        <div id = "dream-location">
-            <img src="img.jpg" id = "dreamimage" width = "500" height = "300" >
+        <div id = "dream-location" class = "text-center">
+            <img src="img.jpg" id = "dreamcityimage" width = "500" height = "300" >
         <input type="text" id = "dream-city" id ="enter-box" class="form-control" placeholder = "Honolulu,US" >
-        <button type="button" class="btn btn-light hidden" id="add-dreamcity" id ="enter-btn">Dream City</button>
+        <button type="button" class="btn btn-light hidden" id="add-dreamcity" id ="enter-btn">Dream Location</button>
       </div>
       </div>
     </div>
 
     <div class="col-sm-4">
       <div id="hottest-location" class = "row">
-        <h6>Hottest Location</h6>
+        <h6>Charts!</h6>
+        <canvas id="myChart" width="400" height="400"></canvas>
       </div>
-      
+
       <div id="current-location" class = "row">
         <h6>Current Location Weather</h6>
         </div>
     </div>
     </div>
   </div>
-
-  <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
 
@@ -68,5 +67,6 @@
 <script type="text/javascript" src="darkskyapi.js"></script>
 
 </body>
+
 </html>
 

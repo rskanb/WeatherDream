@@ -112,11 +112,12 @@ $(document).ready(function(){
         });
     };
     function homeCityWeather(place){
+        $("#add-dreamcity").removeClass("hidden");
       // debugger;
     //Function to get current weather base on city and dream location
         var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${place}&APPID=c63e722432e11165cac004ba48f2a376`;
         homeCityCall(queryUrl);
-        $("#add-dreamcity").css({'display':'block', 'margin':'0 auto'});
+        
         //$("#add-dreamcity").css('text-align','center');
     }
     function homeCityCall(url){
@@ -192,8 +193,8 @@ $(document).ready(function(){
         chart.data.datasets[0].data.push(temp[0])
         chart.data.datasets[0].data.push(parseInt(temp[1]))
         chart.data.datasets[0].data.push(parseInt(temp[2]))
-        chart.data.datasets[0].data.push(temp[0]) -  chart.data.datasets[0].data.push(parseInt(temp[1]))
-        chart.data.datasets[0].data.push(temp[0]) - chart.data.datasets[0].data.push(parseInt(temp[2]))
+        chart.data.datasets[0].data.push(parseInt(temp[1])) - chart.data.datasets[0].data.push(temp[0])
+        chart.data.datasets[0].data.push(parseInt(temp[2])) - chart.data.datasets[0].data.push(temp[0])
         chart.update();
     }
     });

@@ -27,10 +27,6 @@ header {
   text-shadow: rgba(96, 154, 255, 0.3) 1px 1px 1px;
 }
 
-/* .jumbotron { 
-  min-height: 50px;
-  text-align: center } */
-
 #home-location {
 
   min-height: 600px;
@@ -59,18 +55,18 @@ header {
 }
 
 #enter-box{
-  width: 50%;
+  width: 35%;
   margin: 20px auto 0;
 }
 
 #enter-btn {
   display: block;
-  margin: 10px auto;
+  margin: 10px auto 0;
 }
 
 #hottest-location {
   font-family: 'Poppins', sans-serif;
-  min-height: 150px;
+  min-height: 100px;
   border: 3px solid rgba(255, 255, 255, 0.5);
   margin-bottom: 30px;
   border-radius: 10px;
@@ -79,16 +75,17 @@ header {
   font-weight: 200;
 }
 
-#coldest-location {
+#current-location {
   font-family: 'Poppins', sans-serif;
-  min-height: 150px;
+  min-height: 100px;
   border: 3px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 30px;
   border-radius: 10px;
   background: rgba(96, 154, 255, 0.2);
   color: #ffff;
   font-weight: 200;
+}
 
 .hidden {
   display: none;
-
 }

@@ -15,9 +15,10 @@ Everyone; anyone who desires to plan, compare, or obtain mutliple weather condit
 
 ###APIs implemented
 1. Dark Sky
-2. Unsplash
+2. OpenWeather Map
+3. Unsplash
 
- Dark Sky's advanced weather forecast APIs are currently considered to be the most advanced and simplistic to use. Unsplash is an image source library, which was utilized for its large selection of high quality images obtained from world wide locations.
+ Dark Sky's advanced weather forecast APIs are currently considered to be the most advanced and simplistic to use. It also uses the longitude and latitude coordinates to grab the exact weather location. OpenWeather map administers forecast information based on the city enter Unsplash is an image source library, which was utilized for its large selection of high quality images obtained from world wide locations.
 
 
 //screenshots//

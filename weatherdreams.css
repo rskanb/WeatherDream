@@ -1,5 +1,4 @@
 
-
 body {
   background: rgb(216, 229, 252);
 }
@@ -22,9 +21,15 @@ header {
   font-size: 40px;
   font-family: 'Poppins', sans-serif, serif;
   padding: 30px;
-  color: #ffff;
-  text-align: center;
+  color: rgb(9, 105, 248);
+  /* text-align: center; */
   text-shadow: rgba(96, 154, 255, 0.3) 1px 1px 1px;
+  animation-name: headerslider;
+  animation-duration: 10s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode:forwards; 
+  animation-direction: alternate-reverse;
 }
 
 #home-location {
@@ -98,6 +103,12 @@ header {
   text-align:center;
   display:block;
   text-shadow: rgba(96, 154, 255, 0.3) 1px 1px 1px;
+  transition: 2s;
+}
+#current-location:hover {
+  transform: scale(1.5); 
+  opacity:1;
+  z-index: 9999;
 }
 
 .hidden {
@@ -110,15 +121,32 @@ h6 {
   margin-right:auto;
   display:block;
   text-shadow: rgba(96, 154, 255, 0.3) 1px 1px 1px;
-  color: #ffff;
+  color: rgb(9, 105, 248);
   font-size: 20px;
 }
 
-.button{
+.btn{
   margin:0px auto;
+  background-color: rgb(141, 204, 241);
+  transition: 0.5s;
 }
+
+.btn:hover{
+  margin:0px auto;
+  font: white;
+  background-color:rgb(9, 105, 248);
+  transform: scale(1.2);
+
+}
+
 .form-control{
 margin:0px auto;
 text-align: center;
 width: 200px;
 }
+
+@keyframes headerslider{
+  from {transform: translate(0);}
+  to {transform: translate(1000px);}
+}
+

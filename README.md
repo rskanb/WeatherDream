@@ -13,7 +13,7 @@ Weather Dreams was created to enhance the users' experience when searching for w
 ###Users
 Everyone; anyone who desires to plan, compare, or obtain mutliple weather conditions at once. 
 
-###APIs implemented
+##APIs implemented
 1. Dark Sky
 2. OpenWeather Map
 3. Unsplash
@@ -25,5 +25,14 @@ Everyone; anyone who desires to plan, compare, or obtain mutliple weather condit
 
 <!-- PlacehoderImage -->
 
+/../assets/images/initialScreen.png
+
+
+/assets/images/initialScreen.png
+
+/../assets/images/weatherScreen.png
+
+
+"/assets/images/weatherScreen.png"
 
 

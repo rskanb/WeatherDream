@@ -36,8 +36,8 @@ Unsplash is an image source library, which was utilized for its large selection 
 
 **Snap Shots***
 
-![alt text](https://github.com/rskanb/WeatherDream/tree/master/assets/images/initialScreen.png "Initially Loading Weather Dreams")
+![Initial Loading of Weather Dream](assets/images/initialScreen.png)
 
-![alt text](https://github.com/rskanb/WeatherDream/tree/master/assets/images/weatherScreen.png "After Location input Weather Dreams")
+![After Updating Location ](assets/images/weatherScreen.png)
 
 

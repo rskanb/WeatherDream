@@ -15,7 +15,7 @@ A weather forecast application.
 ###Users
 Everyone; anyone who desires to plan, compare, or obtain mutliple weather conditions at once. 
 
-**APIs Used***
+**APIs Used**
 1. Dark Sky
 Dark Sky's advanced weather forecast APIs are currently considered to be the most advanced and simplistic to use. It uses the longitude and latitude coordinates to grab the weather condition based on browser location.
 
@@ -25,7 +25,7 @@ OpenWeather map administers forecast information based on the city enter on home
 3. Unsplash
 Unsplash is an image source library, which was utilized for its large selection of high quality images obtained from world wide city location and best places. This excites user to see pictures of their dream destination places and plan their vacation.
 
-**Future Developements***
+**Future Developements**
 => Compare world coldest and hotest place weather which was deprecated due to limitations on Azevea API.
 => Add more detail 5 to 16 days weather forcast 
 => Also add weather icons and sunrise sunsets of dream places
@@ -34,10 +34,15 @@ Unsplash is an image source library, which was utilized for its large selection 
 
 
 
-**Snap Shots***
+**Snap Shots**
 
-![alt text](https://github.com/rskanb/WeatherDream/tree/master/assets/images/initialScreen.png "Initially Loading Weather Dreams")
+**Initially Loading Weather Dreams**
+![Alt Text](https://github.com/rskanb/WeatherDream/tree/master/assets/images/initialScreen.png "Initially Loading Weather Dreams")
 
-![alt text](https://github.com/rskanb/WeatherDream/tree/master/assets/images/weatherScreen.png "After Location input Weather Dreams")
+![GitHub Logo](https://github.com/rskanb/WeatherDream/tree/master/assets/images/initialScreen.png "Initially Loading Weather Dreams") 
 
+**After Updating Location input Weather Dreams**
+![Alt Text](https://github.com/rskanb/WeatherDream/tree/master/assets/images/weatherScreen.png "After Location input Weather Dreams")
+
+![GitHub Logo](https://github.com/rskanb/WeatherDream/tree/master/assets/images/weatherScreen.png "After Location input Weather Dreams")
 

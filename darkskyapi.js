@@ -46,7 +46,7 @@ $(document).ready(function(){
     //Function to get provided latitue and longitude current weather based on browser
     function getDarkWeather(lat, long){
         //Example of query URL : https://api.darksky.net/forecast/[key]/[latitude],[longitude]
-        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/df67c7be35a4db36806ee00e0657e57d/${lat},${long}`
+        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/{API Key Require}/${lat},${long}`
         $.ajax({
             url: queryUrl,
             method: "GET"
@@ -91,7 +91,7 @@ $(document).ready(function(){
         event.preventDefault();
         stopslide();
         homeCity = $("#home-city").val().trim();
-        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.unsplash.com/search/photos?page=1&query=${homeCity}&client_id=90ca82a2be2184719136b24b6f8bf5978a1c75e992d067d7dacfb1aaf0c76675`;
+        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.unsplash.com/search/photos?page=1&query=${homeCity}&client_id={API key Require}`;
         gethomecitypic(queryUrl);
         homeCityWeather(homeCity);
         $("#home-city").val('');
@@ -102,7 +102,7 @@ $(document).ready(function(){
         event.preventDefault();
         stopdreamslide();
         dreamCity = $("#dream-city").val().trim();
-        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.unsplash.com/search/photos?page=1&query=${dreamCity}&client_id=90ca82a2be2184719136b24b6f8bf5978a1c75e992d067d7dacfb1aaf0c76675`;
+        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.unsplash.com/search/photos?page=1&query=${dreamCity}&client_id={API key require}`;
         getdreamcitypic(queryUrl);
         dreamCityWeather(dreamCity);
         $("#dream-city").val('');
@@ -182,7 +182,7 @@ $(document).ready(function(){
     function homeCityWeather(place){
         $("#add-dreamcity").removeClass("hidden");
         $("#newdiv").empty();
-        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${place}&APPID=c63e722432e11165cac004ba48f2a376`;
+        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${place}&APPID={API Key Require}`;
         homeCityCall(queryUrl);
         //$("#add-dreamcity").css('text-align','center');
     }
@@ -217,7 +217,7 @@ $(document).ready(function(){
      //Function to get dream city/town/location weather base on input
     function dreamCityWeather(dreamplace){
         $("#newdiv1").empty();
-        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamplace}&APPID=c63e722432e11165cac004ba48f2a376`;
+        var queryUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${dreamplace}&APPID={API key Require}`;
         dreamCityCall(queryUrl);
     }
     
